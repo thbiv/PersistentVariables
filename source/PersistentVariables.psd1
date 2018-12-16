@@ -16,10 +16,10 @@ GUID = 'fcae3b97-e201-45ef-ac8d-c82adac360d3'
 Author = 'Thomas Barratt'
 
 # Company or vendor of this module
-CompanyName = ''
+CompanyName = 'THBIV'
 
 # Copyright statement for this module
-Copyright = '2018'
+Copyright = '2017-2018'
 
 # Description of the functionality provided by this module
 Description = 'Keeping track of variables that are to be loaded with profile.'
@@ -61,7 +61,11 @@ PowerShellVersion = '5.0'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @()
+FunctionsToExport = @(
+    'Get-PersistentVariable',
+    'Add-PersistentVariable',
+    'Remove-PersistentVariable'
+)
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
