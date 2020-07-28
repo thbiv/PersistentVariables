@@ -8,7 +8,7 @@ Function GetXMLData {
         }
         Catch{
             $ErrorMessage = $_.Exception.Message
-            Write-Warning $ErrorMessage
+            Throw $ErrorMessage
         }
     }
     $XML = New-Object -TypeName XML
@@ -17,8 +17,9 @@ Function GetXMLData {
     $Output = @()
     ForEach ($Item in $XMLPV) {
         $Props = @{
-            'Name' = $Item.name;
-            'Value' = $Item.value;
+            'Name' = $Item.name
+            'Value' = $Item.value
+            'IsEncryptedValue' = $Item.isencryptedvalue
         }
         $Obj = New-Object -TypeName PSObject -Property $Props
         $Output += $Obj

@@ -15,6 +15,7 @@ Function SaveXMLData {
             $XMLWriter.WriteStartElement('item')
                 $XMLWriter.WriteAttributeString("name","$($Item.name)")
                 $XMLWriter.WriteAttributeString("value","$($Item.value)")
+                $XMLWriter.WriteAttributeString("isencryptedvalue","$($Item.isencryptedvalue)")
             $XMLWriter.WriteEndElement() #End item Element
         }
         $XMLWriter.WriteEndElement() #End variables Element

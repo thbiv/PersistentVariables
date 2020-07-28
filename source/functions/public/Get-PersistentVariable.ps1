@@ -1,21 +1,32 @@
 Function Get-PersistentVariable {
     [CmdletBinding()]
     Param(
-        [Parameter(Position=0)][string[]]$Name
+        [Parameter(Position=0)][string]$Name
     )
     $PVDataFile = "$env:LOCALAPPDATA\THBIV\Powershell\PersistentVariables\pv.xml"
+    $PV = @()
     If (Test-Path -Path $PVDataFile) {
-        $PV = GetXMLData -Path $PVDataFile
-        $Output = @()
+        $PV += GetXMLData -Path $PVDataFile
+        $Filtered = @()
         If ($Name) {
-            ForEach ($Item in $Name) {
-                $Output += ($PV | Where-Object {$_.Name -eq $Item})
-            }
+            $Filtered += ($PV | Where-Object {$_.Name -eq $Name})
         } Else {
-            $Output += $PV
+            $Filtered += $PV
         }
-        Write-Output $Output
+        ForEach ($Item in $Filtered) {
+            If ($Item.IsEncryptedValue -eq $True) {
+                $vValue = '{EncryptedValue}'
+            } Else {
+                $vValue = $($Item.value)
+            }
+            $Props = [ordered]@{
+                'Name' = $($Item.name)
+                'Value' = $vValue
+                'IsEncryptedValue' = $($Item.isencryptedvalue)
+            }
+            Write-Output $(New-Object -TypeName PSObject -Property $Props)
+        }
     } Else {
-        Write-Warning "Data file not found. Nothing to Output"
+        Write-Verbose "Data file not found. Nothing to Output"
     }
 }

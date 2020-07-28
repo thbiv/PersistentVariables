@@ -2,6 +2,7 @@ Function InitializeXMLFile {
     Param(
         [string]$Path
     )
+    New-Item -Path $(Split-Path -Path $Path -Parent) -ItemType Directory -Force | Out-Null
     $XMLWriter = New-Object -TypeName System.Xml.XmlTextWriter($Path,$Null)
     $XMLWriter.Formatting = 'Indented'
     $XMLWriter.Indentation = 1
