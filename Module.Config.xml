@@ -1,0 +1,26 @@
+<config>
+  <deployment>
+    <repository>PSGallery</repository>
+    <onlinehelp>
+    </onlinehelp>
+    <filehash>C:\Users\thbarratt\Documents\FileHashData\PersistentVariables</filehash>
+    <testresults>C:\Users\thbarratt\Documents\TestResults\PersistentVariables</testresults>
+  </deployment>
+  <manifest>
+    <guid>fcae3b97-e201-45ef-ac8d-c82adac360d3</guid>
+    <author>Thomas Barratt</author>
+    <moduleversion>0.2.6</moduleversion>
+    <description>Keeping track of variables that are to be loaded with profile.</description>
+    <copyright>2020 Thomas Barratt</copyright>
+    <projecturi>https://github.com/thbiv/PersistentVariables</projecturi>
+    <licenseuri>https://github.com/thbiv/PersistentVariables/blob/master/LICENSE</licenseuri>
+    <releasenotes>https://github.com/thbiv/PersistentVariables/blob/master/Release-Notes.md</releasenotes>
+    <tags>PersistentVariables,variables,Windows</tags>
+  </manifest>
+  <requiredmodules>
+    <module name="InvokeBuild" repository="PSGallery" />
+    <module name="Pester" repository="PSGallery" requiredversion="4.10.1" />
+    <module name="PSScriptAnalyzer" repository="PSGallery" />
+    <module name="platyPS" repository="PSGallery" />
+  </requiredmodules>
+</config>
