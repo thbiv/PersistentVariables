@@ -9,7 +9,7 @@
   <manifest>
     <guid>fcae3b97-e201-45ef-ac8d-c82adac360d3</guid>
     <author>Thomas Barratt</author>
-    <moduleversion>0.2.6</moduleversion>
+    <moduleversion>0.3.10</moduleversion>
     <description>Keeping track of variables that are to be loaded with profile.</description>
     <copyright>2020 Thomas Barratt</copyright>
     <projecturi>https://github.com/thbiv/PersistentVariables</projecturi>
